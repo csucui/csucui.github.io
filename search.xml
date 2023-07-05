@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>vite+vue打包静态图片丢失问题解决</title>
-      <link href="/2023/07/04/vite-vue%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-      <url>/2023/07/04/vite-vue%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
-      
-        <content type="html"><![CDATA[<p>在前端打包过程中，我遇到了vite不会将<code>assets/images</code>下的图片打包，导致了在打包的项目中找不到静态图片。在网上搜索之后，有这样的解决方法：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">getImageUrl</span> = (<span class="params">name:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`/src/assets/image/categories/<span class="subst">$&#123;name&#125;</span>`</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>).<span class="property">href</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是我在把它写在一个单独的ts文件，在其他vue组件里引用这个方法，发现还是找不到图片，他甚至没有路径，打印出来的是undefined，最后，我把这个方法写在了需要它的vue组件中，解决了这个问题。</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>vite+vue打包静态图片丢失问题解决</title>
+    <url>/2023/07/04/vite-vue%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<p>在前端打包过程中，我遇到了vite不会将<code>assets/images</code>下的图片打包，导致了在打包的项目中找不到静态图片。在网上搜索之后，有这样的解决方法：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">getImageUrl</span> = (<span class="params">name:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`/src/assets/image/categories/<span class="subst">$&#123;name&#125;</span>`</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>).<span class="property">href</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是我在把它写在一个单独的ts文件，在其他vue组件里引用这个方法，发现还是找不到图片，他甚至没有路径，打印出来的是undefined，最后，我把这个方法写在了需要它的vue组件中，解决了这个问题。</p>
+]]></content>
       <categories>
-          
-          <category> web前端 </category>
-          
+        <category>web前端</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-  
-  
+  </entry>
 </search>
