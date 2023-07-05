@@ -20,7 +20,7 @@
 </ul>
 <h2 id="1-编写自动更新脚本"><a href="#1-编写自动更新脚本" class="headerlink" title="1.编写自动更新脚本"></a>1.编写自动更新脚本</h2><p>在Windows的批处理命令中，要调用外部的批处理命令，需要使用<code>call</code>关键字。<br>批处理命令的文件后缀为.bat<br>所以我们的代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set d=%date%</span><br><span class="line">set t=%time%</span><br><span class="line">cd D:/study/Code/hexo</span><br><span class="line">call hexo clean</span><br><span class="line">call hexo g</span><br><span class="line">call hexo d</span><br><span class="line">echo &quot;update blog in %d% %t%&quot; &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
-<p>在这个脚本中，首先获得了当前的日期和时间(set 为生命变量)，然后进入博客的文件夹，依次执行<code>hexo clean g d</code>，这样可以把最新的博客上传到GitHub上,最后把日志写进名为log.txt的文件中。</p>
+<p>在这个脚本中，首先获得了当前的日期和时间(set 为声明变量)，然后进入博客的文件夹，依次执行<code>hexo clean g d</code>，这样可以把最新的博客上传到GitHub上,最后把日志写进名为log.txt的文件中。</p>
 <h2 id="2-编写Windows定时任务"><a href="#2-编写Windows定时任务" class="headerlink" title="2.编写Windows定时任务"></a>2.编写Windows定时任务</h2><p>右键开始按钮，点击计算机管理选项，在系统工具一栏有一个任务计划程序，点击之后在右边可以创建任务，然后弹出一个新的对话框，在常规中设置任务名称和描述，在触发器中设置触发条件，比如每周星期日的12点，在操作中选择你的.bat文件，之后确定就完成了定时任务的创建。</p>
 <h2 id="整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-gt-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件"><a href="#整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-gt-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件" class="headerlink" title="整体流程就是：1. 右键任务栏中的开始按钮2. 点击计算机管理3. 系统工具 –&gt; 创建任务4. 在常规中设置名称和表述5. 在触发器中设置触发条件6. 在操作中选择文件"></a>整体流程就是：<br>1. 右键任务栏中的开始按钮<br>2. 点击计算机管理<br>3. 系统工具 –&gt; 创建任务<br>4. 在常规中设置名称和表述<br>5. 在触发器中设置触发条件<br>6. 在操作中选择文件</h2><h2 id="3-问题"><a href="#3-问题" class="headerlink" title="3. 问题"></a>3. 问题</h2><p>不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。</p>
 ]]></content>
