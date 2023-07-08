@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>一些碎碎念</title>
+    <url>/2023/07/06/blog000/</url>
+    <content><![CDATA[<h2 id="2023-7-6"><a href="#2023-7-6" class="headerlink" title="2023.7.6"></a>2023.7.6</h2><p>这个网站，是我心血来潮创建的，在网上看了一些博客教程搭了一个，或许会一直更新吧(大概)。因为我在大学前两年没干什么事，所以需要以后的两年很努力去弥补，这个博客用来记录生活中遇到的一些有趣的事情和学习中遇到的困难及其解决方案。</p>
+]]></content>
+      <categories>
+        <category>About Me</category>
+      </categories>
+  </entry>
+  <entry>
     <title>window使用批处理定时更新blog</title>
-    <url>/2023/07/05/window%E4%BD%BF%E7%94%A8%E6%89%B9%E5%A4%84%E7%90%86%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0blog/</url>
+    <url>/2023/07/05/bg2/</url>
     <content><![CDATA[<p>在博客的更新中，每次手动更新显得很麻烦，于是我计划使用windows的批处理命令来实现自动化更新。<br>环境：</p>
 <ul>
 <li>Windows 10 22H2</li>
@@ -22,7 +31,7 @@
   </entry>
   <entry>
     <title>vite+vue打包静态图片丢失问题解决</title>
-    <url>/2023/07/04/vite-vue%E6%89%93%E5%8C%85%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    <url>/2023/07/04/bg1/</url>
     <content><![CDATA[<p>在前端打包过程中，我遇到了vite不会将<code>assets/images</code>下的图片打包，导致了在打包的项目中找不到静态图片。在网上搜索之后，有这样的解决方法：</p>
 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">getImageUrl</span> = (<span class="params">name:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`/src/assets/image/categories/<span class="subst">$&#123;name&#125;</span>`</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>).<span class="property">href</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但是我在把它写在一个单独的ts文件，在其他vue组件里引用这个方法，发现还是找不到图片，他甚至没有路径，打印出来的是undefined，最后，我把这个方法写在了需要它的vue组件中，解决了这个问题。</p>
