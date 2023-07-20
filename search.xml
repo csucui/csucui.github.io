@@ -10,6 +10,19 @@
       </categories>
   </entry>
   <entry>
+    <title>python中的深拷贝</title>
+    <url>/2023/07/20/3/</url>
+    <content><![CDATA[<p>在参加的一个python项目中，我编写了一个从总分求平均值的功能，在该方法中，一开始我是直接将参数中的总分<code>sum_score</code>赋给一个变量<code>avg_score</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">group_avg_score:<span class="built_in">list</span> = group_sum_score</span><br></pre></td></tr></table></figure>
+<p>但是在测试过程中，输出的结果(总分和平均分)总是一样的，结合另一种语言<code>javascript</code>，我认为是浅拷贝导致的，浅拷贝只是拷贝了变量的地址，也就是说两个变量指向同一个内存空间，对其中一个变量的修改也会导致另一个变量的改变。<br>所以我对代码进行了以下修改：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">group_avg_score = copy.deepcopy(group_sum_score)</span><br></pre></td></tr></table></figure>
+<p><code>copy.deepcopy()</code>是一个进行深拷贝的函数。<br>在运行一次，顺利输出了结果<br><img src="/python%E4%B8%AD%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/1.png"></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+  </entry>
+  <entry>
     <title>window使用批处理定时更新blog</title>
     <url>/2023/07/05/bg2/</url>
     <content><![CDATA[<p>在博客的更新中，每次手动更新显得很麻烦，于是我计划使用windows的批处理命令来实现自动化更新。<br>环境：</p>
