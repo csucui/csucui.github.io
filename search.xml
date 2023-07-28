@@ -1,114 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>leetcode中等题第54题螺旋矩阵</title>
-      <link href="/2023/07/26/5/"/>
-      <url>/2023/07/26/5/</url>
-      
-        <content type="html"><![CDATA[<p>先看题<br><img src="/2023/07/26/5/image.png" alt="Alt text"></p><p>这个题的介绍就是顺时针输出一个矩阵<br>本人的思路一贯是把我思考的过程转为代码<br>其实人的思考过程很简单，就是顺时针转一圈又一圈就可以了，但是我们要从中获取一些思考时自动忽略了的条件，那就是边界问题。<br>在图中的1-&gt;2-&gt;3-&gt;6-&gt;9-&gt;8的过程中，我们遍历了第一行和最后一列，那么在以后的遍历时，第一行和最后一列就被删除掉了，不会再遍历，那这个就是代码的核心思路，遍历完一行或者一列之后就删掉相应的行&#x2F;列<br>上代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">spiralOrder</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        ans = []</span><br><span class="line">        m_max = <span class="built_in">len</span>(matrix) </span><br><span class="line">        n_max = <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        flag = <span class="literal">True</span></span><br><span class="line">        n_min,m_min = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        m,n = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(matrix)*<span class="built_in">len</span>(matrix[<span class="number">0</span>])):</span><br><span class="line">            ans.append(matrix[m][n])</span><br><span class="line">            <span class="keyword">if</span> flag:</span><br><span class="line">                <span class="keyword">if</span> n &lt; n_max-<span class="number">1</span>:</span><br><span class="line">                    n += <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> m &lt; m_max-<span class="number">1</span>:</span><br><span class="line">                    m += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    n_max -=<span class="number">1</span></span><br><span class="line">                    m_min +=<span class="number">1</span></span><br><span class="line">                    n -= <span class="number">1</span></span><br><span class="line">                    flag = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> n &gt; n_min:</span><br><span class="line">                    n -=<span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> m &gt; m_min:</span><br><span class="line">                    m -=<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    n_min += <span class="number">1</span></span><br><span class="line">                    m_max -= <span class="number">1</span></span><br><span class="line">                    n += <span class="number">1</span></span><br><span class="line">                    flag = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure><p>这一段代码的执行效率<br><img src="/2023/07/26/5/image1.png" alt="Alt text"><br>虽然不高，但是也还能用(bushi</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>leetcode中等题第54题螺旋矩阵</title>
+    <url>/2023/07/26/5/</url>
+    <content><![CDATA[<p>先看题<br><img src="/2023/07/26/5/image.png" alt="Alt text"></p>
+<p>这个题的介绍就是顺时针输出一个矩阵<br>本人的思路一贯是把我思考的过程转为代码<br>其实人的思考过程很简单，就是顺时针转一圈又一圈就可以了，但是我们要从中获取一些思考时自动忽略了的条件，那就是边界问题。<br>在图中的1-&gt;2-&gt;3-&gt;6-&gt;9-&gt;8的过程中，我们遍历了第一行和最后一列，那么在以后的遍历时，第一行和最后一列就被删除掉了，不会再遍历，那这个就是代码的核心思路，遍历完一行或者一列之后就删掉相应的行&#x2F;列<br>上代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">spiralOrder</span>(<span class="params">self, matrix: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        ans = []</span><br><span class="line">        m_max = <span class="built_in">len</span>(matrix) </span><br><span class="line">        n_max = <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">        flag = <span class="literal">True</span></span><br><span class="line">        n_min,m_min = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        m,n = <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(matrix)*<span class="built_in">len</span>(matrix[<span class="number">0</span>])):</span><br><span class="line">            ans.append(matrix[m][n])</span><br><span class="line">            <span class="keyword">if</span> flag:</span><br><span class="line">                <span class="keyword">if</span> n &lt; n_max-<span class="number">1</span>:</span><br><span class="line">                    n += <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> m &lt; m_max-<span class="number">1</span>:</span><br><span class="line">                    m += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    n_max -=<span class="number">1</span></span><br><span class="line">                    m_min +=<span class="number">1</span></span><br><span class="line">                    n -= <span class="number">1</span></span><br><span class="line">                    flag = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> n &gt; n_min:</span><br><span class="line">                    n -=<span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> m &gt; m_min:</span><br><span class="line">                    m -=<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    n_min += <span class="number">1</span></span><br><span class="line">                    m_max -= <span class="number">1</span></span><br><span class="line">                    n += <span class="number">1</span></span><br><span class="line">                    flag = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<p>这一段代码的执行效率<br><img src="/2023/07/26/5/image1.png" alt="Alt text"><br>虽然不高，但是也还能用(bushi</p>
+]]></content>
       <categories>
-          
-          <category> python </category>
-          
+        <category>python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> leetcode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>python中的深拷贝</title>
-      <link href="/2023/07/20/3/"/>
-      <url>/2023/07/20/3/</url>
-      
-        <content type="html"><![CDATA[<p>在参加的一个python项目中，我编写了一个从总分求平均值的功能，在该方法中，一开始我是直接将参数中的总分<code>sum_score</code>赋给一个变量<code>avg_score</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group_avg_score:<span class="built_in">list</span> = group_sum_score</span><br></pre></td></tr></table></figure><p>但是在测试过程中，输出的结果(总分和平均分)总是一样的，结合另一种语言<code>javascript</code>，我认为是浅拷贝导致的，浅拷贝只是拷贝了变量的地址，也就是说两个变量指向同一个内存空间，对其中一个变量的修改也会导致另一个变量的改变。<br>所以我对代码进行了以下修改：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">group_avg_score = copy.deepcopy(group_sum_score)</span><br></pre></td></tr></table></figure><p><code>copy.deepcopy()</code>是一个进行深拷贝的函数。<br>在运行一次，顺利输出了结果</p>]]></content>
-      
-      
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python中的深拷贝</title>
+    <url>/2023/07/20/3/</url>
+    <content><![CDATA[<p>在参加的一个python项目中，我编写了一个从总分求平均值的功能，在该方法中，一开始我是直接将参数中的总分<code>sum_score</code>赋给一个变量<code>avg_score</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">group_avg_score:<span class="built_in">list</span> = group_sum_score</span><br></pre></td></tr></table></figure>
+<p>但是在测试过程中，输出的结果(总分和平均分)总是一样的，结合另一种语言<code>javascript</code>，我认为是浅拷贝导致的，浅拷贝只是拷贝了变量的地址，也就是说两个变量指向同一个内存空间，对其中一个变量的修改也会导致另一个变量的改变。<br>所以我对代码进行了以下修改：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">group_avg_score = copy.deepcopy(group_sum_score)</span><br></pre></td></tr></table></figure>
+<p><code>copy.deepcopy()</code>是一个进行深拷贝的函数。<br>在运行一次，顺利输出了结果</p>
+]]></content>
       <categories>
-          
-          <category> python </category>
-          
+        <category>python</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>一些碎碎念</title>
-      <link href="/2023/07/06/blog000/"/>
-      <url>/2023/07/06/blog000/</url>
-      
-        <content type="html"><![CDATA[<h2 id="2023-7-6"><a href="#2023-7-6" class="headerlink" title="2023.7.6"></a>2023.7.6</h2><p>这个网站，是我心血来潮创建的，在网上看了一些博客教程搭了一个，或许会一直更新吧(大概)。因为我在大学前两年没干什么事，所以需要以后的两年很努力去弥补，这个博客用来记录生活中遇到的一些有趣的事情和学习中遇到的困难及其解决方案。</p>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>vite+vue打包静态图片丢失问题解决</title>
+    <url>/2023/07/04/bg1/</url>
+    <content><![CDATA[<p>在前端打包过程中，我遇到了vite不会将<code>assets/images</code>下的图片打包，导致了在打包的项目中找不到静态图片。在网上搜索之后，有这样的解决方法：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">getImageUrl</span> = (<span class="params">name:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`/src/assets/image/categories/<span class="subst">$&#123;name&#125;</span>`</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>).<span class="property">href</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是我在把它写在一个单独的ts文件，在其他vue组件里引用这个方法，发现还是找不到图片，他甚至没有路径，打印出来的是undefined，最后，我把这个方法写在了需要它的vue组件中，解决了这个问题。</p>
+]]></content>
       <categories>
-          
-          <category> About Me </category>
-          
+        <category>web前端</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>window使用批处理定时更新blog</title>
-      <link href="/2023/07/05/bg2/"/>
-      <url>/2023/07/05/bg2/</url>
-      
-        <content type="html"><![CDATA[<p>在博客的更新中，每次手动更新显得很麻烦，于是我计划使用windows的批处理命令来实现自动化更新。<br>环境：</p><ul><li>Windows 10 22H2</li></ul><h2 id="1-编写自动更新脚本"><a href="#1-编写自动更新脚本" class="headerlink" title="1.编写自动更新脚本"></a>1.编写自动更新脚本</h2><p>在Windows的批处理命令中，要调用外部的批处理命令，需要使用<code>call</code>关键字。<br>批处理命令的文件后缀为.bat<br>所以我们的代码如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set d=%date%</span><br><span class="line">set t=%time%</span><br><span class="line">cd D:/study/Code/hexo</span><br><span class="line">call hexo clean</span><br><span class="line">call hexo g</span><br><span class="line">call hexo d</span><br><span class="line">echo &quot;update blog in %d% %t%&quot; &gt;&gt; log.txt</span><br></pre></td></tr></table></figure><p>在这个脚本中，首先获得了当前的日期和时间(set 为声明变量)，然后进入博客的文件夹，依次执行<code>hexo clean g d</code>，这样可以把最新的博客上传到GitHub上,最后把日志写进名为log.txt的文件中。</p><h2 id="2-编写Windows定时任务"><a href="#2-编写Windows定时任务" class="headerlink" title="2.编写Windows定时任务"></a>2.编写Windows定时任务</h2><p>右键开始按钮，点击计算机管理选项，在系统工具一栏有一个任务计划程序，点击之后在右边可以创建任务，然后弹出一个新的对话框，在常规中设置任务名称和描述，在触发器中设置触发条件，比如每周星期日的12点，在操作中选择你的.bat文件，之后确定就完成了定时任务的创建。</p><h2 id="整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件"><a href="#整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件" class="headerlink" title="整体流程就是：1. 右键任务栏中的开始按钮2. 点击计算机管理3. 系统工具 –&gt; 创建任务4. 在常规中设置名称和表述5. 在触发器中设置触发条件6. 在操作中选择文件"></a>整体流程就是：<br>1. 右键任务栏中的开始按钮<br>2. 点击计算机管理<br>3. 系统工具 –&gt; 创建任务<br>4. 在常规中设置名称和表述<br>5. 在触发器中设置触发条件<br>6. 在操作中选择文件</h2><h2 id="3-问题"><a href="#3-问题" class="headerlink" title="3. 问题"></a>3. 问题</h2><h2 id="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。"><a href="#不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。" class="headerlink" title="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。"></a>不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。</h2><p>还是写不进去qwq，我在试试其他的方法吧。</p>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>一些碎碎念</title>
+    <url>/2023/07/06/blog000/</url>
+    <content><![CDATA[<h2 id="2023-7-6"><a href="#2023-7-6" class="headerlink" title="2023.7.6"></a>2023.7.6</h2><p>这个网站，是我心血来潮创建的，在网上看了一些博客教程搭了一个，或许会一直更新吧(大概)。因为我在大学前两年没干什么事，所以需要以后的两年很努力去弥补，这个博客用来记录生活中遇到的一些有趣的事情和学习中遇到的困难及其解决方案。</p>
+]]></content>
       <categories>
-          
-          <category> blog魔改 </category>
-          
+        <category>About Me</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> windows </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>vite+vue打包静态图片丢失问题解决</title>
-      <link href="/2023/07/04/bg1/"/>
-      <url>/2023/07/04/bg1/</url>
-      
-        <content type="html"><![CDATA[<p>在前端打包过程中，我遇到了vite不会将<code>assets/images</code>下的图片打包，导致了在打包的项目中找不到静态图片。在网上搜索之后，有这样的解决方法：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">getImageUrl</span> = (<span class="params">name:<span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`/src/assets/image/categories/<span class="subst">$&#123;name&#125;</span>`</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>).<span class="property">href</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是我在把它写在一个单独的ts文件，在其他vue组件里引用这个方法，发现还是找不到图片，他甚至没有路径，打印出来的是undefined，最后，我把这个方法写在了需要它的vue组件中，解决了这个问题。</p>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>window使用批处理定时更新blog</title>
+    <url>/2023/07/05/bg2/</url>
+    <content><![CDATA[<p>在博客的更新中，每次手动更新显得很麻烦，于是我计划使用windows的批处理命令来实现自动化更新。<br>环境：</p>
+<ul>
+<li>Windows 10 22H2</li>
+</ul>
+<h2 id="1-编写自动更新脚本"><a href="#1-编写自动更新脚本" class="headerlink" title="1.编写自动更新脚本"></a>1.编写自动更新脚本</h2><p>在Windows的批处理命令中，要调用外部的批处理命令，需要使用<code>call</code>关键字。<br>批处理命令的文件后缀为.bat<br>所以我们的代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set d=%date%</span><br><span class="line">set t=%time%</span><br><span class="line">cd D:/study/Code/hexo</span><br><span class="line">call hexo clean</span><br><span class="line">call hexo g</span><br><span class="line">call hexo d</span><br><span class="line">echo &quot;update blog in %d% %t%&quot; &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
+<p>在这个脚本中，首先获得了当前的日期和时间(set 为声明变量)，然后进入博客的文件夹，依次执行<code>hexo clean g d</code>，这样可以把最新的博客上传到GitHub上,最后把日志写进名为log.txt的文件中。</p>
+<h2 id="2-编写Windows定时任务"><a href="#2-编写Windows定时任务" class="headerlink" title="2.编写Windows定时任务"></a>2.编写Windows定时任务</h2><p>右键开始按钮，点击计算机管理选项，在系统工具一栏有一个任务计划程序，点击之后在右边可以创建任务，然后弹出一个新的对话框，在常规中设置任务名称和描述，在触发器中设置触发条件，比如每周星期日的12点，在操作中选择你的.bat文件，之后确定就完成了定时任务的创建。</p>
+<h2 id="整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件"><a href="#整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件" class="headerlink" title="整体流程就是：1. 右键任务栏中的开始按钮2. 点击计算机管理3. 系统工具 –&gt; 创建任务4. 在常规中设置名称和表述5. 在触发器中设置触发条件6. 在操作中选择文件"></a>整体流程就是：<br>1. 右键任务栏中的开始按钮<br>2. 点击计算机管理<br>3. 系统工具 –&gt; 创建任务<br>4. 在常规中设置名称和表述<br>5. 在触发器中设置触发条件<br>6. 在操作中选择文件</h2><h2 id="3-问题"><a href="#3-问题" class="headerlink" title="3. 问题"></a>3. 问题</h2><h2 id="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。"><a href="#不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。" class="headerlink" title="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。"></a>不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。</h2><p>还是写不进去qwq，我在试试其他的方法吧。</p>
+]]></content>
       <categories>
-          
-          <category> web前端 </category>
-          
+        <category>blog魔改</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
 </search>
