@@ -10,6 +10,25 @@
       </categories>
   </entry>
   <entry>
+    <title>leetcode困难题第135题</title>
+    <url>/2023/08/01/6/</url>
+    <content><![CDATA[<p>先看题：<br><img src="/2023/08/01/6/image.png"><br>解题思路：</p>
+<ol>
+<li>维护一个分发糖果的list，长度为n，初始值为1</li>
+<li>从前往后遍历，如果后比前大，则后的数量为前的数量+1</li>
+<li>从后往前遍历，逻辑同上</li>
+<li>输出list的和<br>代码如下：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">candy</span>(<span class="params">self, ratings: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        nums = [<span class="number">1</span>]* <span class="built_in">len</span>(ratings)</span><br><span class="line">        <span class="comment"># 正向来一遍</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(ratings)-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> ratings[i+<span class="number">1</span>] &gt; ratings[i]:</span><br><span class="line">                nums[i+<span class="number">1</span>] = nums[i] + <span class="number">1</span></span><br><span class="line">        <span class="comment"># 反向来一遍</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ratings)-<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> ratings[i-<span class="number">1</span>] &gt; ratings[i] <span class="keyword">and</span> nums[i-<span class="number">1</span>] &lt;= nums[i]:</span><br><span class="line">                 nums[i-<span class="number">1</span>] = nums[i] + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span>(nums)</span><br></pre></td></tr></table></figure>
+代码运行效率：<br><img src="/2023/08/01/6/image1.png"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode中等题第54题螺旋矩阵</title>
     <url>/2023/07/26/5/</url>
     <content><![CDATA[<p>先看题<br><img src="/2023/07/26/5/image.png" alt="Alt text"></p>
@@ -48,7 +67,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">set d=%date%</span><br><span class="line">set t=%time%</span><br><span class="line">cd D:/study/Code/hexo</span><br><span class="line">call hexo clean</span><br><span class="line">call hexo g</span><br><span class="line">call hexo d</span><br><span class="line">echo &quot;update blog in %d% %t%&quot; &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
 <p>在这个脚本中，首先获得了当前的日期和时间(set 为声明变量)，然后进入博客的文件夹，依次执行<code>hexo clean g d</code>，这样可以把最新的博客上传到GitHub上,最后把日志写进名为log.txt的文件中。</p>
 <h2 id="2-编写Windows定时任务"><a href="#2-编写Windows定时任务" class="headerlink" title="2.编写Windows定时任务"></a>2.编写Windows定时任务</h2><p>右键开始按钮，点击计算机管理选项，在系统工具一栏有一个任务计划程序，点击之后在右边可以创建任务，然后弹出一个新的对话框，在常规中设置任务名称和描述，在触发器中设置触发条件，比如每周星期日的12点，在操作中选择你的.bat文件，之后确定就完成了定时任务的创建。</p>
-<h2 id="整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件"><a href="#整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件" class="headerlink" title="整体流程就是：1. 右键任务栏中的开始按钮2. 点击计算机管理3. 系统工具 –&gt; 创建任务4. 在常规中设置名称和表述5. 在触发器中设置触发条件6. 在操作中选择文件"></a>整体流程就是：<br>1. 右键任务栏中的开始按钮<br>2. 点击计算机管理<br>3. 系统工具 –&gt; 创建任务<br>4. 在常规中设置名称和表述<br>5. 在触发器中设置触发条件<br>6. 在操作中选择文件</h2><h2 id="3-问题"><a href="#3-问题" class="headerlink" title="3. 问题"></a>3. 问题</h2><h2 id="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。"><a href="#不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。" class="headerlink" title="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。"></a>不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。</h2><p>还是写不进去qwq，我在试试其他的方法吧。</p>
+<h2 id="整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件"><a href="#整体流程就是：1-右键任务栏中的开始按钮2-点击计算机管理3-系统工具-–-创建任务4-在常规中设置名称和表述5-在触发器中设置触发条件6-在操作中选择文件" class="headerlink" title="整体流程就是：1. 右键任务栏中的开始按钮2. 点击计算机管理3. 系统工具 –&gt; 创建任务4. 在常规中设置名称和表述5. 在触发器中设置触发条件6. 在操作中选择文件"></a>整体流程就是：<br>1. 右键任务栏中的开始按钮<br>2. 点击计算机管理<br>3. 系统工具 –&gt; 创建任务<br>4. 在常规中设置名称和表述<br>5. 在触发器中设置触发条件<br>6. 在操作中选择文件</h2><h2 id="3-问题"><a href="#3-问题" class="headerlink" title="3. 问题"></a>3. 问题</h2><h2 id="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。"><a href="#不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个-bat文件推上去测试一下。" class="headerlink" title="不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。"></a>不知道为什么，在我测试过程中，他写不进去日志，等我写完这一段就用那个.bat文件推上去测试一下。</h2><h2 id="还是写不进去qwq，我在试试其他的方法吧。"><a href="#还是写不进去qwq，我在试试其他的方法吧。" class="headerlink" title="还是写不进去qwq，我在试试其他的方法吧。"></a>还是写不进去qwq，我在试试其他的方法吧。</h2><p>2023.7.28<br>换了一个脚本文件，从<code>.bat</code>换到了<code>.ps1</code>，也就是powershell的脚本<br>先看代码：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-Location</span> D:\study\Code\hexo</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"><span class="variable">$loginfo</span>=<span class="string">&quot;<span class="variable">$</span>(Get-Date),向GitHub推送一次博客更新&quot;</span></span><br><span class="line"><span class="variable">$loginfo</span> | <span class="built_in">Out-File</span> <span class="literal">-FilePath</span> D:\automissions\log.txt <span class="literal">-Append</span></span><br><span class="line"><span class="variable">$loginfo</span> = <span class="variable">$null</span></span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<p>我之前的写法是<br><code>$loginfo | Out-File -FilePath .\log.txt -Append</code><br>但是在cd进博客文件夹时，他下面就没有log.txt文件，然后他就创建了一个，写在了里面，但是我一直以为是另外一个文件夹下的log.txt，自然一直都没有值&#x2F;(ㄒoㄒ)&#x2F;~~</p>
 ]]></content>
       <categories>
         <category>blog魔改</category>
