@@ -2,12 +2,33 @@
 <search>
   <entry>
     <title>一些碎碎念</title>
-    <url>/2023/07/06/blog000/</url>
+    <url>/2023/07/06/0/</url>
     <content><![CDATA[<h2 id="2023-7-6"><a href="#2023-7-6" class="headerlink" title="2023.7.6"></a>2023.7.6</h2><p>这个网站，是我心血来潮创建的，在网上看了一些博客教程搭了一个，或许会一直更新吧(大概)。因为我在大学前两年没干什么事，所以需要以后的两年很努力去弥补，这个博客用来记录生活中遇到的一些有趣的事情和学习中遇到的困难及其解决方案。</p>
 ]]></content>
       <categories>
         <category>About Me</category>
       </categories>
+  </entry>
+  <entry>
+    <title>双指针</title>
+    <url>/2023/09/14/7/</url>
+    <content><![CDATA[<h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>双指针就是在算法中维护两个指针，这两个指针分别指向某个变量。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>双指针的优点在于可以大幅减少时间复杂度。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><img src="/2023/09/14/7/image.png" alt="Alt text"><br>对于这个例子，我们给出一个测试用例<br><code>numbers = [2,7,11,15] target = 9</code><br>对于number的长度很少的情况，我们可以通过暴力遍历来求出解，时间复杂度为$O(n^2)$。但是当number长度很长，例如$10^4$这么长，暴力遍历的时间复杂度将过于大导致算法效率很低。<br>降低时间复杂度就可以使用双指针。<br>在这个例子中，numbers是非递减排好序的，那么我们考虑一下情况：</p>
+<ol>
+<li>初始化<code>int i = 0,j = numbers.length - 1</code>,这两个数分别代表了numbers里最大和最小的数</li>
+<li>当<code>numbers[i] + numbers[j] &lt; target</code>时，因为j所代表的数已经是最大的了，所以就增加i。</li>
+<li>当<code>numbers[i] + numbers[j] &gt; target</code>时，因为i所代表的数已经是最小的了，所以就减少j。</li>
+</ol>
+<p>至此，由于i+j等于numbers的长度，我们将时间复杂度降到了$O(n)$<br>代码如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] numbers, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>,j = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(numbers[i]+numbers[j] &gt; target)&#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(numbers[i]+numbers[j] &lt; target)&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i+<span class="number">1</span>,j+<span class="number">1</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
   </entry>
   <entry>
     <title>leetcode困难题第135题</title>
